@@ -16,11 +16,12 @@ export default function Content() {
 
   useEffect(() => {
     fetchContentList(search, page)
-      .then(({ contentList, totalPages, status }) => {
+      .then(({ contentList, totalPages, status, score }) => {
         if (status === 'ok' && contentList.length) {
           setError('')
           setContentList(contentList)
           setTotalPages(totalPages)
+          console.log('score', score)
         } else {
           const apiStatus = (status === "ok") ? '' : `API status: ${status}.`
           setError(`No results found. ${apiStatus}`)

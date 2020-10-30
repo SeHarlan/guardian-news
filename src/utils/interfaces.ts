@@ -5,5 +5,8 @@ export interface contentInterface {
   webPublicationDate: Date,
   webTitle: string,
   webUrl: string,
-  apiUrl: string
+  apiUrl: string,
+  fields: {
+    thumbnail: string
+  }
 }
