@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import ContentList from './components/ContentList';
+import { fetchContentList } from './utils/services';
+import { contentInterface } from './utils/interfaces';
+
+const initState: contentInterface[] = []
 
 function App() {
+  const [contentList, setContentList] = useState(initState)
+
+  useEffect(() => {
+    fetchContentList()
+      .then(list => setContentList(list))
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ContentList contentList={contentList} />
+
+    </>
   );
 }
 
