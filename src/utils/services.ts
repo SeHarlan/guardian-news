@@ -9,7 +9,8 @@ export function fetchContentList(search: string, page: number) {
     .then(res => res.json())
     .then(({ response }) => ({
       contentList: response.results as contentInterface[],
-      totalPages: response.pages as number
-    })
-    )
+      totalPages: response.pages as number,
+      status: response.status as string
+    }))
+    .catch(err => err)
 }

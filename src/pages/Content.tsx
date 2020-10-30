@@ -12,20 +12,33 @@ export default function Content() {
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const [search, setSearch] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetchContentList(search, page)
-      .then(response => {
-        setContentList(response.contentList)
-        setTotalPages(response.totalPages)
+      .then(({ contentList, totalPages, status }) => {
+        if (status === 'ok' && contentList.length) {
+          setError('')
+          setContentList(contentList)
+          setTotalPages(totalPages)
+        } else {
+          const apiStatus = (status === "ok") ? '' : `API status: ${status}.`
+          setError(`No results found. ${apiStatus}`)
+        }
       })
   }, [search, page])
 
   return (
     <main>
       <SearchBar search={search} setSearch={setSearch} />
-      <ContentList contentList={contentList} />
-      <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+      {error
+        ? <p>{error}</p>
+        : (<>
+          <ContentList contentList={contentList} />
+          <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+        </>)
+      }
+
     </main>
   );
 }
