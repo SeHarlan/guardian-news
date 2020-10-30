@@ -1,5 +1,5 @@
 import React from 'react'
-import { contentInterface } from '../utils/interfaces'
+import { contentInterface } from '../../utils/interfaces'
 
 interface contentListProps {
   contentList: contentInterface[]
