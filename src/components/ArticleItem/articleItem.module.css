@@ -1,13 +1,39 @@
+@import '../../css/variables.css';
+
 .title {
-  background-color: grey;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  max-width: var(--max-width);
+
   text-align: center;
+  font-family: var(--title-font);
+  font-weight: bold;
 }
 .date {
   display: block;
   text-align: center;
+  font-family: var(--title-font);
 }
 
 .image {
   display: block;
-  margin: 2rem auto;
+  width: 80%;
+  max-width: calc(var(--max-width) - 200px);
+  margin: 2.5rem auto;
+
+  border: 2px solid var(--header-bg);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.article {
+  margin: 0 auto;
+  padding: 0 2rem;
+  max-width: var(--max-width);
+  margin-bottom: 10vh;
+}
+
+.article a {
+  text-decoration: underline;
+  color: var(--header-bg);
+  
 }

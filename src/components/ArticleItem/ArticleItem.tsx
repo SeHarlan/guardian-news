@@ -13,10 +13,10 @@ export default function ArticleItem({ article }: { article: contentInterface }) 
 
   const date = new Date(webPublicationDate)
 
-  return (<div>
+  return (<>
     <h2 className={styles.title}>{webTitle}</h2>
     <i className={styles.date}>~ {date.toDateString()} ~</i>
     <img className={styles.image} src={fields?.thumbnail || image} onError={onErrorImage} alt="" />
-    <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(fields.body) }}></p>
-  </div>)
+    <article className={styles.article} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(fields.body) }}></article>
+  </>)
 }
