@@ -15,7 +15,11 @@ export default function ArticleItem({ article }: { article: contentInterface }) 
 
   return (<>
     <h2 className={styles.title}>{webTitle}</h2>
-    <i className={styles.date}>~ {date.toDateString()} ~</i>
+    <i className={styles.date}>~ {
+      (date.toDateString() === 'Invalid Date')
+        ? '^_^'
+        : date.toDateString()
+    } ~</i>
     <img className={styles.image} src={fields?.thumbnail || image} onError={onErrorImage} alt="" />
     <article className={styles.article} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(fields.body) }}></article>
   </>)

@@ -21,16 +21,29 @@ export const initState: contentInterface = {
 
 export default function Article() {
   const [article, setArticle] = useState(initState)
+  const [error, setError] = useState('')
   const { id }: { id: string } = useParams()
 
   useEffect(() => {
     fetchArticleItem(id)
-      .then(({ article }) => {
-        setArticle(article)
+      .then(({ article, status }) => {
+        if (status === 'ok' && article) {
+          setError('')
+          setArticle(article)
+        } else {
+          const apiStatus = (status === "ok") ? '' : `API status: ${status}.`
+          setError(`Something has gone wrong. ${apiStatus}`)
+        }
       })
+      .catch(err => console.log(err))
+
   }, [id])
 
   return (<main>
-    <ArticleItem article={article} />
+
+    {error
+      ? <p className="error">{error}</p>
+      : (<ArticleItem article={article} />)
+    }
   </main>)
 }

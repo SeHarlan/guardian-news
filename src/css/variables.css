@@ -1,16 +1,23 @@
 :root {
   --title-color: white;
   --body-color: rgb(46, 45, 45);
+  --error-red: rgb(142, 26, 26);
 
-  --header-bg: rgb(25, 25, 133);
   --border-color: rgba(63, 63, 152, 0.3);
-  --secondary-bg: rgb(234, 245, 245);
+  
+  --header-bg: rgb(25, 25, 133);
+  --secondary-bg: rgb(237, 247, 247);
   --bg: rgb(255, 255, 255);
+  --gradient: linear-gradient(45deg, var(--bg), var(--secondary-bg));
 
   --decorative-title-font: 'Cinzel Decorative', cursive;
   --title-font: 'Cinzel', Georgia, serif;
   --body-font: 'Quicksand', sans-serif;
 
   --max-width: 900px;
+  --img-width: 400px;
   --bottom-margin: 7rem;
+
+  --breakpoint-small: 600px;
 }
+

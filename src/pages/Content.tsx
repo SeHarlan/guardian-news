@@ -27,13 +27,14 @@ export default function Content() {
           setError(`No results found. ${apiStatus}`)
         }
       })
+      .catch(err => console.log(err))
   }, [search, page])
 
   return (
     <main>
       <SearchBar setSearch={setSearch} />
       {error
-        ? <p>{error}</p>
+        ? <p className="error">{error}</p>
         : (<>
           <ContentList contentList={contentList} />
           <Pagination page={page} setPage={setPage} totalPages={totalPages} />

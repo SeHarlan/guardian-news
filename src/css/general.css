@@ -19,22 +19,39 @@ code {
 }
 
 button {
+  --button-color: var(--header-bg);
+
   padding: 0.2rem 1rem;
 
-  border: 3px outset var(--border-color);
-  border-radius: 6px;
-  background-color: var(--header-bg);
+  background-color: var(--button-color);
+  border: 3px outset var(--button-color);
+  border-radius: 5px;
+
   color: var(--title-color);
-  transition: 0.2s;
+  font: inherit;
+
+  transition: 0.2s; 
+  outline: none;
+}
+
+button:focus {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 button:hover {
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
 button:active {
   box-shadow: 0 0 0;
+  border: 3px inset var(--button-color);
+}
+button:disabled {
+  filter: blur(0.8px);
+  box-shadow: 0 0 0;
+  border: 3px inset var(--button-color);
+  cursor: default;
 }
 
 a {
@@ -43,7 +60,7 @@ a {
 }
 
 img {
-  width: 400px;
+  width: var(--img-width);
   height: auto;
 }
 
@@ -54,5 +71,16 @@ ol {
 
 h1, h2, h3 {
   font-weight: inherit;
+}
+
+.error {
+  text-align: center;
+  color: var(--error-red)
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 0.8rem;
+  }
 }
 
