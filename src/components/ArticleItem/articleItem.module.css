@@ -29,7 +29,7 @@
   margin: 0 auto;
   padding: 0 2rem;
   max-width: var(--max-width);
-  margin-bottom: 10vh;
+  margin-bottom: var(--bottom-margin)
 }
 
 .article a {

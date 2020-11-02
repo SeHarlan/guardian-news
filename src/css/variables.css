@@ -3,12 +3,14 @@
   --body-color: rgb(46, 45, 45);
 
   --header-bg: rgb(25, 25, 133);
-  --secondary-bg: rgb(47, 201, 218);
+  --border-color: rgba(63, 63, 152, 0.6);
+  --secondary-bg: rgb(234, 245, 245);
   --bg: rgb(255, 255, 255);
 
   --decorative-title-font: 'Cinzel Decorative', cursive;
   --title-font: 'Cinzel', Georgia, serif;
   --body-font: 'Quicksand', sans-serif;
 
-  --max-width: 900px
+  --max-width: 900px;
+  --bottom-margin: 7rem;
 }

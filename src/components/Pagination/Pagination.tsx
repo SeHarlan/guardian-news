@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from './pagination.module.css'
+
 interface paginationProps {
   page: number,
   setPage: Function,
@@ -12,7 +14,7 @@ export default function Pagination({ page, setPage, totalPages }: paginationProp
 
   const lastPage = totalPages > pagingLimit ? pagingLimit : totalPages
 
-  return (<div>
+  return (<div className={styles.pagination}>
     <button onClick={() => setPage(1)}>First</button>
     <button disabled={page <= 1} onClick={() => setPage((prev: number) => prev - 1)}>Previous</button>
     <span> {page} / {lastPage} </span>

@@ -1,0 +1,5 @@
+@import '../../css/variables.css';
+
+.pagination {
+  margin: 0 auto var(--bottom-margin);
+}

@@ -1,0 +1,32 @@
+@import '../../css/variables.css';
+
+.list {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--max-width);
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.item {
+  margin: 0.5rem; 
+  padding: 0.5rem;
+
+  border: 2px solid var(--border-color);
+  background-color: var(--secondary-bg);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  color: var(--header-bg)
+}
+
+.date {
+  font-weight: lighter;
+}
+
+.image {
+  width: 100%;
+}
