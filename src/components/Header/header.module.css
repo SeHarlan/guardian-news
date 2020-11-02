@@ -1,3 +1,22 @@
+@import '../../css/variables.css';
+
 .header {
-  text-align: center;
+  margin: 0;
+  padding: 0.5rem 4rem 1.5rem;
+
+  text-align: right;
+  font-family: var(--decorative-title-font);
+  font-weight: lighter;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  background-color: var(--header-bg);
+}
+.the {
+  margin: 0;
+  position: relative;
+  top: 1rem;
+  right: 3rem;
+}
+.guardian {
+  margin: 0
 }
