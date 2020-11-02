@@ -11,11 +11,13 @@ interface contentListProps {
 export default function ContentList({ contentList }: contentListProps) {
 
   return (<ol>
-    {contentList.map(({ id, webTitle, fields }) => {
+    {contentList.map(({ id, webTitle, fields, webPublicationDate }) => {
       const passableID = id?.replace(/\//g, replaceChar)
+      const date = new Date(webPublicationDate)
       return (<li key={id}>
         <Link to={`/article/${passableID}`}>
           <h3>{webTitle}</h3>
+          <i>{date.toDateString()}</i>
           <img src={fields?.thumbnail || image} onError={onErrorImage} alt="" />
         </Link>
       </li>)

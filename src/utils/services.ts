@@ -8,8 +8,13 @@ const guardianURL = "https://content.guardianapis.com/"
 
 export const replaceChar = '_'
 
+const orderBy = "relevance" //'newest', 'oldest'
+
 export function fetchContentList(search: string, page: number) {
-  return fetch(`${guardianURL}search?${key}&q=${search}&page=${page}&show-fields=thumbnail`)
+
+  const url = `${guardianURL}search?${key}&q=${search}&page=${page}&order-by=${orderBy}&show-fields=thumbnail&query-fields=body`
+
+  return fetch(url)
     .then(res => res.json())
     .then(({ response }) => ({
       contentList: response.results as contentInterface[],
@@ -24,7 +29,9 @@ export function fetchArticleItem(id: string) {
   const reg = new RegExp(replaceChar, "g")
   const articleURL = id.replace(reg, '/')
 
-  return (fetch(`${guardianURL}${articleURL}?${key}&show-fields=thumbnail,body`))
+  const url = `${guardianURL}${articleURL}?${key}&show-fields=thumbnail,body`
+
+  return (fetch(url))
     .then(res => res.json())
     .then(({ response }) => ({
       status: response.status as string,

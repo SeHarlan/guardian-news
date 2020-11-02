@@ -5,11 +5,12 @@ import { fetchArticleItem } from '../utils/services'
 import { contentInterface } from '../utils/interfaces'
 import image from '../assets/default.png'
 
-const initState: contentInterface = {
+export const initState: contentInterface = {
   id: '',
   sectionId: '',
   sectionName: '',
   webTitle: '...loading',
+  webPublicationDate: '',
   webUrl: '',
   apiUrl: '',
   fields: {
