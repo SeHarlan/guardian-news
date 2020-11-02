@@ -2,11 +2,12 @@ export interface contentInterface {
   id: string
   sectionId: string
   sectionName: string,
-  webPublicationDate: Date,
+  webPublicationDate: string,
   webTitle: string,
   webUrl: string,
   apiUrl: string,
   fields: {
     thumbnail: string
+    body: string
   }
 }

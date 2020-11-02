@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { contentInterface } from '../utils/interfaces'
 import { fetchContentList } from '../utils/services'
 import ContentList from '../components/ContentList/ContentList'
 import Pagination from '../components/Pagination/Pagination'
 import SearchBar from '../components/SearchBar/SearchBar'
 
-const initState: contentInterface[] = []
+import { initState } from './Article'
+
+const initStateList = [initState]
 
 export default function Content() {
-  const [contentList, setContentList] = useState(initState)
+  const [contentList, setContentList] = useState(initStateList)
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const [search, setSearch] = useState('')
@@ -16,12 +17,11 @@ export default function Content() {
 
   useEffect(() => {
     fetchContentList(search, page)
-      .then(({ contentList, totalPages, status, score }) => {
+      .then(({ contentList, totalPages, status }) => {
         if (status === 'ok' && contentList.length) {
           setError('')
           setContentList(contentList)
           setTotalPages(totalPages)
-          console.log('score', score)
         } else {
           const apiStatus = (status === "ok") ? '' : `API status: ${status}.`
           setError(`No results found. ${apiStatus}`)
@@ -31,7 +31,7 @@ export default function Content() {
 
   return (
     <main>
-      <SearchBar search={search} setSearch={setSearch} />
+      <SearchBar setSearch={setSearch} />
       {error
         ? <p>{error}</p>
         : (<>

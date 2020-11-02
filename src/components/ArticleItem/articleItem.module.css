@@ -1,0 +1,13 @@
+.title {
+  background-color: grey;
+  text-align: center;
+}
+.date {
+  display: block;
+  text-align: center;
+}
+
+.image {
+  display: block;
+  margin: 2rem auto;
+}

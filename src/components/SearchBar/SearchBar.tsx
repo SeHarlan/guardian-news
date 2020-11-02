@@ -1,16 +1,27 @@
-import React, { useState, FormEvent } from 'react'
+import React, { useState, FormEvent, useEffect } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 
 interface searchBarProps {
-  search: string,
   setSearch: Function
 }
 
-export default function SearchBar({ search, setSearch }: searchBarProps) {
-  const [input, setInput] = useState(search)
+export default function SearchBar({ setSearch }: searchBarProps) {
+  const [input, setInput] = useState('')
+  const { urlSearch }: { urlSearch: string } = useParams()
+
+  const history = useHistory()
+
+  useEffect(() => {
+    if (urlSearch) {
+      setSearch(urlSearch)
+      setInput(urlSearch)
+    }
+  }, [urlSearch, setSearch])
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
     setSearch(input)
+    history.replace(`/${input}`)
   }
 
   return (<form onSubmit={handleSubmit}>
