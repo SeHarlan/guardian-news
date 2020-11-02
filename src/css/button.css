@@ -1,0 +1,35 @@
+button {
+  --button-border: var(--border-color);
+  padding: 0.1rem 0.5rem 0.2rem;
+  margin: 0.2rem;
+
+  background-color: var(--header-bg);
+  border: 3px outset var(--button-border);
+  border-radius: 5px;
+
+  color: var(--title-color);
+  font: inherit;
+
+  transition: 0.2s; 
+  outline: none;
+}
+
+button:focus {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: 0 0 0;
+  border: 3px inset var(--button-border);
+}
+button:disabled {
+  filter: blur(0.8px);
+  box-shadow: 0 0 0;
+  border: 3px inset var(--button-border);
+  cursor: default;
+}

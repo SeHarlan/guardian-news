@@ -9,6 +9,7 @@
   --secondary-bg: rgb(237, 247, 247);
   --bg: rgb(255, 255, 255);
   --gradient: linear-gradient(45deg, var(--bg), var(--secondary-bg));
+  --scrim-color: rgba(180, 213, 213, 0.3);
 
   --decorative-title-font: 'Cinzel Decorative', cursive;
   --title-font: 'Cinzel', Georgia, serif;
@@ -16,8 +17,6 @@
 
   --max-width: 900px;
   --img-width: 400px;
-  --bottom-margin: 7rem;
-
-  --breakpoint-small: 600px;
+  --bottom-margin: 6rem;
 }
 

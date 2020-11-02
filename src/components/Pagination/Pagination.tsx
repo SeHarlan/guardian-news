@@ -15,10 +15,22 @@ export default function Pagination({ page, setPage, totalPages }: paginationProp
   const lastPage = totalPages > pagingLimit ? pagingLimit : totalPages
 
   return (<div className={styles.pagination}>
-    <button onClick={() => setPage(1)}>First</button>
-    <button disabled={page <= 1} onClick={() => setPage((prev: number) => prev - 1)}>Previous</button>
-    <span> {page} / {lastPage} </span>
-    <button disabled={page >= totalPages || page >= pagingLimit} onClick={() => setPage((prev: number) => prev + 1)}>Next</button>
-    <button onClick={() => setPage(lastPage)}>Last</button>
+    <button
+      disabled={page === 1}
+      onClick={() => setPage(1)}
+    >&#8676;</button>
+    <button
+      disabled={page <= 1}
+      onClick={() => setPage((prev: number) => prev - 1)}
+    >&#8592;</button>
+    <i className={styles.pages}>{page} / {lastPage}</i>
+    <button
+      disabled={page >= totalPages || page >= pagingLimit}
+      onClick={() => setPage((prev: number) => prev + 1)}
+    >&#8594;</button>
+    <button
+      disabled={page === lastPage}
+      onClick={() => setPage(lastPage)}
+    >&#8677;</button>
   </div>)
 }
