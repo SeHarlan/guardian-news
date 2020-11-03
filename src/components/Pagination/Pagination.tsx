@@ -2,13 +2,14 @@ import React from 'react'
 
 import styles from './pagination.module.css'
 
+import { pagingLimit } from '../../utils/services'
+
 interface paginationProps {
   page: number,
   setPage: Function,
   totalPages: number
 }
 
-const pagingLimit = 3800
 
 export default function Pagination({ page, setPage, totalPages }: paginationProps) {
 

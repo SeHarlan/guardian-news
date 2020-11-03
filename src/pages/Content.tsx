@@ -14,9 +14,10 @@ export default function Content() {
   const [totalPages, setTotalPages] = useState(1)
   const [search, setSearch] = useState('')
   const [error, setError] = useState('')
+  const [orderBy, setOrderBy] = useState('relevance')
 
   useEffect(() => {
-    fetchContentList(search, page)
+    fetchContentList(search, orderBy, page)
       .then(({ contentList, totalPages, status }) => {
         if (status === 'ok' && contentList.length) {
           setError('')
@@ -28,11 +29,11 @@ export default function Content() {
         }
       })
       .catch(err => console.log(err))
-  }, [search, page])
+  }, [search, page, orderBy])
 
   return (
     <main>
-      <SearchBar setSearch={setSearch} />
+      <SearchBar setSearch={setSearch} orderBy={orderBy} setOrderBy={setOrderBy} />
       {error
         ? <p className="error">{error}</p>
         : (<>

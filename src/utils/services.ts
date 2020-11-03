@@ -8,11 +8,11 @@ const guardianURL = "https://content.guardianapis.com/"
 
 export const replaceChar = '_'
 
-const orderBy = "relevance" //'newest', 'oldest'
+export const pagingLimit = 3800
 
-export function fetchContentList(search: string, page: number) {
+export function fetchContentList(search: string, orderBy: string, page: number) {
 
-  const url = `${guardianURL}search?${key}&q=${search}&page=${page}&order-by=${orderBy}&show-fields=thumbnail&query-fields=body`
+  const url = `${guardianURL}search?${key}&q=${search}&page=${page}&order-by=${orderBy}&show-fields=thumbnail&query-fields=body&page-size=9`
 
   return fetch(url)
     .then(res => res.json())
