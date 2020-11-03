@@ -1,0 +1,26 @@
+:root {
+  --title-color: white;
+  --body-color: rgb(46, 45, 45);
+  --error-red: rgb(142, 26, 26);
+
+  --border-color: rgba(63, 63, 152, 0.3);
+  
+  --header-bg: rgb(25, 25, 133);
+  --secondary-bg: rgb(237, 247, 247);
+  --bg: rgb(255, 255, 255);
+  --gradient: linear-gradient(45deg, var(--bg), var(--secondary-bg));
+  --scrim-color: rgba(180, 213, 213, 0.3);
+
+  /*--decorative-title-font: 'Cinzel Decorative', cursive;
+  --title-font: 'Cinzel', Georgia, serif;
+  --body-font: 'Quicksand', sans-serif;*/
+
+  --decorative-title-font: 'Playfair Display', serif;
+  --title-font: 'Spectral SC', serif;
+  --body-font: 'Playfair Display', serif;
+
+  --max-width: 900px;
+  --img-width: 400px;
+  --bottom-margin: 6rem;
+}
+

@@ -1,0 +1,51 @@
+@import './variables.css';
+@import './button.css';
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  box-sizing: border-box;
+  font-family: var(--body-font);
+  color: var(--text);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+
+  background-color: var(--bg);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: var(--img-width);
+  height: auto;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-weight: inherit;
+}
+
+.error {
+  text-align: center;
+  color: var(--error-red)
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 0.8rem;
+  }
+}
+

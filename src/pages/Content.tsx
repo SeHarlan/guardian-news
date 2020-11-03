@@ -14,9 +14,10 @@ export default function Content() {
   const [totalPages, setTotalPages] = useState(1)
   const [search, setSearch] = useState('')
   const [error, setError] = useState('')
+  const [orderBy, setOrderBy] = useState('relevance')
 
   useEffect(() => {
-    fetchContentList(search, page)
+    fetchContentList(search, orderBy, page)
       .then(({ contentList, totalPages, status }) => {
         if (status === 'ok' && contentList.length) {
           setError('')
@@ -27,16 +28,17 @@ export default function Content() {
           setError(`No results found. ${apiStatus}`)
         }
       })
-  }, [search, page])
+      .catch(err => console.log(err))
+  }, [search, page, orderBy])
 
   return (
     <main>
-      <SearchBar setSearch={setSearch} />
+      <SearchBar setSearch={setSearch} orderBy={orderBy} setOrderBy={setOrderBy} />
       {error
-        ? <p>{error}</p>
+        ? <p className="error">{error}</p>
         : (<>
-          <ContentList contentList={contentList} />
           <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+          <ContentList contentList={contentList} />
         </>)
       }
 

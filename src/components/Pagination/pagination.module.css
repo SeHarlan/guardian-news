@@ -1,0 +1,19 @@
+.pagination {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.7rem 0 var(--bottom-margin);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--scrim-color);
+  box-shadow: -3px 0 5px var(--scrim-color);
+}
+
+.pages {
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+  background-color: var(--scrim-color);
+  font-family: var(--title-font);
+}

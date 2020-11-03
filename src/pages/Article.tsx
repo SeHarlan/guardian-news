@@ -4,6 +4,7 @@ import ArticleItem from '../components/ArticleItem/ArticleItem'
 import { fetchArticleItem } from '../utils/services'
 import { contentInterface } from '../utils/interfaces'
 import image from '../assets/default.png'
+import BackToTop from '../components/BackToTop/BackToTop'
 
 export const initState: contentInterface = {
   id: '',
@@ -21,16 +22,30 @@ export const initState: contentInterface = {
 
 export default function Article() {
   const [article, setArticle] = useState(initState)
+  const [error, setError] = useState('')
   const { id }: { id: string } = useParams()
 
   useEffect(() => {
     fetchArticleItem(id)
-      .then(({ article }) => {
-        setArticle(article)
+      .then(({ article, status }) => {
+        if (status === 'ok' && article) {
+          setError('')
+          setArticle(article)
+        } else {
+          const apiStatus = (status === "ok") ? '' : `API status: ${status}.`
+          setError(`Something has gone wrong. ${apiStatus}`)
+        }
       })
+      .catch(err => console.log(err))
+
   }, [id])
 
   return (<main>
-    <ArticleItem article={article} />
+    <BackToTop />
+
+    {error
+      ? <p className="error">{error}</p>
+      : (<ArticleItem article={article} />)
+    }
   </main>)
 }

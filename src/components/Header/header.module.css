@@ -1,3 +1,29 @@
 .header {
-  text-align: center;
+  margin: 0;
+  padding: 0.5rem 0 1.5rem;
+ 
+
+  text-align: right;
+  font-family: var(--decorative-title-font);
+  font-weight: lighter;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  text-shadow: 2px 2px 3px rgba(33, 33, 33, 0.8);
+
+  background-color: var(--header-bg);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);  
+}
+.the {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  position: relative;
+  top: 1rem;
+  right: 9.5rem;
+ 
+}
+.guardian {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  position: relative;
+  right: 4rem;
 }
