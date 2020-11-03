@@ -12,6 +12,8 @@ export const pagingLimit = 3800
 
 export function fetchContentList(search: string, orderBy: string, page: number) {
 
+  if (search === '' && orderBy !== 'oldest') orderBy = 'newest'
+
   const url = `${guardianURL}search?${key}&q=${search}&page=${page}&order-by=${orderBy}&show-fields=thumbnail&query-fields=body&page-size=9`
 
   return fetch(url)
