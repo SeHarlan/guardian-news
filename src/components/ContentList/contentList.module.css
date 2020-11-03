@@ -1,5 +1,5 @@
 .list {
-  margin: 0 auto;
+  margin: 0 auto calc(var(--bottom-margin) + 3rem);
   width: 90%;
   max-width: var(--max-width);
   padding: 0 1rem;

@@ -36,8 +36,8 @@ export default function Content() {
       {error
         ? <p className="error">{error}</p>
         : (<>
-          <ContentList contentList={contentList} />
           <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+          <ContentList contentList={contentList} />
         </>)
       }
 

@@ -1,6 +1,7 @@
-import React, { useState, FormEvent, useEffect } from 'react'
+import React, { useState, FormEvent, useEffect, useRef } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
+import styles from './searchBar.module.css'
 interface searchBarProps {
   setSearch: Function
 }
@@ -22,10 +23,17 @@ export default function SearchBar({ setSearch }: searchBarProps) {
     event.preventDefault()
     setSearch(input)
     history.replace(`/${input}`)
+
   }
 
-  return (<form onSubmit={handleSubmit}>
-    <input type="text" value={input} onChange={({ target }) => setInput(target.value)} />
-    <button>Search</button>
+  return (<form className={styles.search} onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <input
+        className={styles.input}
+        type="text"
+        value={input}
+        onChange={({ target }) => setInput(target.value)} />
+      <button className={styles.button}>Search</button>
+    </div>
   </form>)
 }
