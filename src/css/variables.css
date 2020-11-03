@@ -11,9 +11,13 @@
   --gradient: linear-gradient(45deg, var(--bg), var(--secondary-bg));
   --scrim-color: rgba(180, 213, 213, 0.3);
 
-  --decorative-title-font: 'Cinzel Decorative', cursive;
+  /*--decorative-title-font: 'Cinzel Decorative', cursive;
   --title-font: 'Cinzel', Georgia, serif;
-  --body-font: 'Quicksand', sans-serif;
+  --body-font: 'Quicksand', sans-serif;*/
+
+  --decorative-title-font: 'Playfair Display', serif;
+  --title-font: 'Spectral SC', serif;
+  --body-font: 'Playfair Display', serif;
 
   --max-width: 900px;
   --img-width: 400px;

@@ -15,4 +15,5 @@
   padding: 0.3rem 1rem;
   border-radius: 5px;
   background-color: var(--scrim-color);
+  font-family: var(--title-font);
 }

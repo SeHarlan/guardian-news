@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, useEffect, useRef } from 'react'
+import React, { useState, FormEvent, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
 import styles from './searchBar.module.css'

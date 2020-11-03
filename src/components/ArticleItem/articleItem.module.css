@@ -4,7 +4,7 @@
   max-width: var(--max-width);
 
   text-align: center;
-  font-family: var(--title-font);
+  font-family: var(--decorative-title-font);
   font-weight: bold;
 }
 .date {
