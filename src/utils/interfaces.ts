@@ -11,3 +11,8 @@ export interface contentInterface {
     body: string
   }
 }
+
+export interface articleResponse {
+  status: string,
+  article: contentInterface
+}

@@ -44,7 +44,7 @@ export default function SearchBar({ setSearch, setOrderBy, orderBy }: searchBarP
           id="orderBy"
           value={orderBy}
           onChange={({ target }) => setOrderBy(target.value)}>
-          <option selected value="relevance">Relevance</option>
+          <option value="relevance">Relevance</option>
           <option value="newest">Newest</option>
           <option value="oldest">Oldest</option>
         </select>

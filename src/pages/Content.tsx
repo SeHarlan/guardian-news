@@ -4,7 +4,7 @@ import ContentList from '../components/ContentList/ContentList'
 import Pagination from '../components/Pagination/Pagination'
 import SearchBar from '../components/SearchBar/SearchBar'
 
-import { initState } from './Article'
+import { initState } from '../utils/useContext'
 
 const initStateList = [initState]
 

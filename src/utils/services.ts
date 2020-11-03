@@ -25,7 +25,6 @@ export function fetchContentList(search: string, orderBy: string, page: number) 
 }
 
 export function fetchArticleItem(id: string) {
-
   const reg = new RegExp(replaceChar, "g")
   const articleURL = id.replace(reg, '/')
 
