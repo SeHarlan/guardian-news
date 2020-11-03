@@ -21,11 +21,11 @@ export default function Article() {
   useEffect(() => {
     if (cachedArticle) {
       setArticle(cachedArticle as contentInterface)
-      console.log('cached Article', cachedArticle)
+      console.log('Cached Article:', cachedArticle)
       return
     }
 
-    console.log("fetching Article")
+    console.log("Fetching Article")
     fetchArticleItem(id)
       .then(({ article, status }) => {
         if (status === 'ok' && article) {

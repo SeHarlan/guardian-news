@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0.5rem 0 1.5rem;
  
-
   text-align: right;
   font-family: var(--decorative-title-font);
   font-weight: lighter;
@@ -10,7 +9,7 @@
   color: var(--title-color);
   text-shadow: 2px 2px 3px rgba(33, 33, 33, 0.8);
 
-  background-color: var(--header-bg);
+  background: var(--title-gradient);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);  
 }
 .the {
@@ -26,4 +25,13 @@
   max-width: var(--max-width);
   position: relative;
   right: 4rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .the {
+    right: 7.5rem
+  }
+  .guardian {
+    right: 2rem
+  }
 }

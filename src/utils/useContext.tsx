@@ -1,18 +1,6 @@
-import React, { createContext, useContext, useState, ReactChild, SetStateAction, Dispatch } from 'react'
-import { contentInterface } from './interfaces'
+import React, { createContext, useContext, useState, SetStateAction } from 'react'
+import { contentInterface, Cache, Children, reducerStateType } from './interfaces'
 import image from '../assets/default.png'
-
-interface Cache {
-  [key: string]: contentInterface | contentInterface[]
-}
-interface Children {
-  children: ReactChild
-}
-
-type reducerStateType = {
-  setCache: Dispatch<SetStateAction<Cache>>
-  cache: Cache
-}
 
 export const initState: contentInterface = {
   id: '',
@@ -30,12 +18,16 @@ export const initState: contentInterface = {
 
 const initCacheState: Cache = {
   object: initState,
-  array: [initState]
+  array: {
+    contentList: [initState],
+    totalPages: 1
+  }
 }
 const initContext = {
   setCache: (value: SetStateAction<Cache>) => { },
   cache: initCacheState
 }
+
 const Context = createContext<reducerStateType>(initContext)
 
 

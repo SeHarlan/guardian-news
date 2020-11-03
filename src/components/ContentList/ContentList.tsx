@@ -16,6 +16,7 @@ export default function ContentList({ contentList }: contentListProps) {
     {contentList.map(({ id, webTitle, fields, webPublicationDate }) => {
       const passableID = id?.replace(/\//g, replaceChar)
       const date = new Date(webPublicationDate)
+
       return (<li className={styles.item} key={id}>
         <Link to={`/article/${passableID}`}>
           <img className={styles.image} src={fields?.thumbnail || image} onError={onErrorImage} alt="" />

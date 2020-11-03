@@ -5,7 +5,7 @@ import Pagination from '../components/Pagination/Pagination'
 import SearchBar from '../components/SearchBar/SearchBar'
 
 import { initState, useSetCache, useCache } from '../utils/useContext'
-import { contentInterface } from '../utils/interfaces'
+import { listInterface } from '../utils/interfaces'
 
 const initStateList = [initState]
 
@@ -19,16 +19,18 @@ export default function Content() {
 
   const setCache = useSetCache()
   const cache = useCache()
-  const cachedContent = cache[search + orderBy + page]
+  const cachedContent = cache[search + orderBy + page] as listInterface
 
   useEffect(() => {
     if (cachedContent) {
-      setContentList(cachedContent as contentInterface[])
-      console.log('cached Content', cachedContent)
+      const { contentList, totalPages } = cachedContent
+      setContentList(contentList)
+      setTotalPages(totalPages)
+      console.log('Cached Content:', cachedContent)
       return
     }
 
-    console.log("fetching Content")
+    console.log("Fetching Content")
     fetchContentList(search, orderBy, page)
       .then(({ contentList, totalPages, status }) => {
         if (status === 'ok' && contentList.length) {
@@ -36,7 +38,13 @@ export default function Content() {
           setContentList(contentList)
           setTotalPages(totalPages)
 
-          setCache((prev) => ({ ...prev, [search + orderBy + page]: contentList }))
+          setCache((prev) => ({
+            ...prev,
+            [search + orderBy + page]: {
+              contentList,
+              totalPages
+            }
+          }))
         } else {
           const apiStatus = (status === "ok") ? '' : `API status: ${status}.`
           setError(`No results found. ${apiStatus}`)
@@ -48,6 +56,7 @@ export default function Content() {
   return (
     <main>
       <SearchBar setSearch={setSearch} orderBy={orderBy} setOrderBy={setOrderBy} />
+
       {error
         ? <p className="error">{error}</p>
         : (<>
@@ -55,7 +64,6 @@ export default function Content() {
           <ContentList contentList={contentList} />
         </>)
       }
-
     </main>
   );
 }

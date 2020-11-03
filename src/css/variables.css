@@ -8,12 +8,10 @@
   --header-bg: rgb(25, 25, 133);
   --secondary-bg: rgb(237, 247, 247);
   --bg: rgb(255, 255, 255);
-  --gradient: linear-gradient(45deg, var(--bg), var(--secondary-bg));
   --scrim-color: rgba(180, 213, 213, 0.3);
 
-  /*--decorative-title-font: 'Cinzel Decorative', cursive;
-  --title-font: 'Cinzel', Georgia, serif;
-  --body-font: 'Quicksand', sans-serif;*/
+  --gradient: linear-gradient(45deg, var(--bg), var(--secondary-bg));
+  --title-gradient: linear-gradient(45deg, var(--header-bg), rgb(58, 58, 176));
 
   --decorative-title-font: 'Playfair Display', serif;
   --title-font: 'Spectral SC', serif;

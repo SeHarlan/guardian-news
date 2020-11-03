@@ -3,9 +3,9 @@
   bottom: 0;
   padding: 0.5rem 0 var(--bottom-margin);
   width: 100%;
-  background-color: var(--scrim-color);
   display: flex;
   justify-content: center;
+  background-color: var(--scrim-color);
 }
 
 .button {

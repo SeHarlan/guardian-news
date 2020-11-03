@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction, ReactChild } from "react";
+
 export interface contentInterface {
   id: string
   sectionId: string
@@ -12,7 +14,20 @@ export interface contentInterface {
   }
 }
 
-export interface articleResponse {
-  status: string,
-  article: contentInterface
+export interface listInterface {
+  contentList: contentInterface[],
+  totalPages: number
 }
+
+export interface Cache {
+  [key: string]: contentInterface | listInterface
+}
+export interface Children {
+  children: ReactChild
+}
+
+export type reducerStateType = {
+  setCache: Dispatch<SetStateAction<Cache>>
+  cache: Cache
+}
+
