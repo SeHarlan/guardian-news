@@ -14,24 +14,19 @@ export default function Article() {
   const [error, setError] = useState('')
   const { id }: { id: string } = useParams()
 
-  const [cached, setCached] = useState(false)
   const setCache = useSetCache()
   const cache = useCache()
+  const cachedArticle = cache[id]
 
   useEffect(() => {
-    const cashedArticle = cache[id]
-    if (cashedArticle) {
-      setCached(true)
-      setArticle(cashedArticle as contentInterface)
+    if (cachedArticle) {
+      setArticle(cachedArticle as contentInterface)
+      console.log('cached', cachedArticle)
+      return
     }
-    console.log('cached', cashedArticle)
-  }, [id, cache])
 
-  useEffect(() => {
-    if (cached) return
     console.log("fetching")
     fetchArticleItem(id)
-
       .then(({ article, status }) => {
         if (status === 'ok' && article) {
           setError('')
@@ -46,7 +41,7 @@ export default function Article() {
       })
       .catch(err => console.log(err))
 
-  }, [id, setCache, cached])
+  }, [id, setCache, cachedArticle])
 
   return (<main>
     <BackToTop />
