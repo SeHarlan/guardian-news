@@ -1,5 +1,6 @@
 button {
   --button-border: var(--border-color);
+
   padding: 0.1rem 0.5rem 0.2rem;
   margin: 0.2rem;
 
@@ -27,6 +28,7 @@ button:active {
   box-shadow: 0 0 0;
   border: 3px inset var(--button-border);
 }
+
 button:disabled {
   filter: blur(0.8px);
   box-shadow: 0 0 0;

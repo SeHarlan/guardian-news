@@ -10,7 +10,6 @@ interface paginationProps {
   totalPages: number
 }
 
-
 export default function Pagination({ page, setPage, totalPages }: paginationProps) {
 
   const lastPage = totalPages > pagingLimit ? pagingLimit : totalPages

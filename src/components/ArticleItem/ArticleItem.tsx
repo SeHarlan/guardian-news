@@ -4,9 +4,7 @@ import { onErrorImage } from '../../utils/services';
 import DOMPurify from 'dompurify';
 
 import styles from './articleItem.module.css'
-
 import image from '../../assets/default.png'
-
 
 export default function ArticleItem({ article }: { article: contentInterface }) {
   const { webTitle, fields, webPublicationDate } = article

@@ -2,6 +2,7 @@ import React, { useState, FormEvent, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
 import styles from './searchBar.module.css'
+
 interface searchBarProps {
   setSearch: Function,
   setOrderBy: Function,
@@ -11,7 +12,6 @@ interface searchBarProps {
 export default function SearchBar({ setSearch, setOrderBy, orderBy }: searchBarProps) {
   const [input, setInput] = useState('')
   const { urlSearch }: { urlSearch: string } = useParams()
-
   const history = useHistory()
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function SearchBar({ setSearch, setOrderBy, orderBy }: searchBarP
           id="orderBy"
           value={orderBy}
           onChange={({ target }) => setOrderBy(target.value)}>
-          <option selected value="relevance">Relevance</option>
+          <option value="relevance">Relevance</option>
           <option value="newest">Newest</option>
           <option value="oldest">Oldest</option>
         </select>
